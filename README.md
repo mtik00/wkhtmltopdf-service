@@ -9,6 +9,11 @@ The hardest part about this is getting the fonts correct.
 If you can't use this image directly, hopefully the `Dockerfile` can guide you
 most of the way.
 
+| :warning: WARNING          |
+|:---------------------------|
+| This is **NOT** tested with large inputs.  The process of running `wkhtmltopdf` is synchronous, and the result is passed through `stdout`.  Surely things will go awry if you use this on large amounts of HTML without making modifications to the app |
+
+
 ## Releasing
 
 1. Use `poetry` to bump a version.  For example:  
