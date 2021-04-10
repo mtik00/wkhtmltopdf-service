@@ -11,8 +11,24 @@ most of the way.
 
 | :warning: WARNING          |
 |:---------------------------|
-| This is **NOT** tested with large inputs.  The process of running `wkhtmltopdf` is synchronous, and the result is passed through `stdout`.  Surely things will go awry if you use this on large amounts of HTML without making modifications to the app |
+| This is **NOT** tested with large HTML input!  The process of running `wkhtmltopdf` is _synchronous_, and the result is passed through `stdout`.  Surely things will go awry if you use this on large amounts of HTML without making modifications to the app |
 
+## Requirements
+This project is meant to be ran in a docker container.  However, you can run it locally if you want.
+*   You must have `wkhtmltopdf` in your path
+*   Your Python environment must have:
+    * starlette
+    * aiofiles
+*   You must have some kind of `awsgi` runner (I'm using `uvicorn`)
+*   Copy [src/app.py](app.py) to your environment
+
+Your environment will need to have certain fonts installed if you want a one-to-one conversion of the HTML.  The docker image provided only includes the fonts that I'm using in other projects.  See the `wkhtmltopdf` documentation for font usage.
+
+If you're OK with how the docker image is set up, you can just run the container:
+
+    docker run --rm -p 8080:8080 mtik00/wkhtmltopdf-service:latest
+
+and be done with it.
 
 ## Releasing
 
