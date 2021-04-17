@@ -1,4 +1,4 @@
-.PHONY: build push
+.PHONY: build push tag
 
 VERSION := latest
 PLATFORMS = linux/amd64
