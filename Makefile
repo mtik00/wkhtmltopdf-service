@@ -19,4 +19,4 @@ push:
     endif
 
 tag:
-	git tag v$(shell poetry version -s)
+	git tag v$(shell poetry version -s) -a -m v$(shell poetry version -s)
